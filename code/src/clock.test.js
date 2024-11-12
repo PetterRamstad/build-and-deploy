@@ -12,3 +12,15 @@ test('getSecondsLeftOfYear returns the correct amount of seconds', () => {
     expect(timeString).toBe(3600);
 });
 
+// New test for getMinutesLeftOfYear
+test('getMinutesLeftOfYear returns the correct amount of minutes with two decimal precision', () => {
+    const now = new Date("2022-12-31T23:00:00.000Z"); // 1 hour left in the year
+    const minutesLeft = getMinutesLeftOfYear(now);
+    expect(minutesLeft).toBe("60.00"); // 1 hour = 60 minutes
+});
+
+test('getMinutesLeftOfYear handles fractional minutes correctly', () => {
+    const now = new Date("2022-12-31T23:59:30.000Z"); // 30 seconds left
+    const minutesLeft = getMinutesLeftOfYear(now);
+    expect(minutesLeft).toBe("0.50"); // 30 seconds = 0.5 minutes
+});
