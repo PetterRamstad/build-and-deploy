@@ -1,17 +1,17 @@
-name: Build
+name: Build and deploy
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./code
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 22.x
+      
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
@@ -19,3 +19,9 @@ jobs:
       - run: npm run build
       - run: npm run lint
       - run: npm run test
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: ./code/dist
