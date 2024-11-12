@@ -1,4 +1,4 @@
-import { getSecondsLeftOfYear, getTimeString, getMinutesLeftOfYear } from "./clock";
+import { getSecondsLeftOfYear, getMinutesLeftOfYear } from "./clock";
 
 // test('getTimeString formats time string correctly', () => {
 //     const now = new Date(0, 0, 0, 10, 20, 30);
