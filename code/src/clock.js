@@ -1,9 +1,10 @@
 export const getTimeString = (now) => {
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const seconds = now.getSeconds();
-    return `${hour}:${minute}:${seconds}`
-}
+    const hour = String(now.getHours()).padStart(2, '0');
+    const minute = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `${hour}.${minute}.${seconds}`;
+};
+
 
 const getNextYearDate = (now) => {
     const endOfYearDate = new Date(0)
