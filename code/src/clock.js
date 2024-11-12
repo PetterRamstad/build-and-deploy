@@ -17,3 +17,12 @@ export const getSecondsLeftOfYear = (now) => {
     const nowMillis = now.getTime();
     return Math.floor((startOfNextYearMillis - nowMillis) / 1000);
 }
+
+// New function to get minutes left with two-decimal precision
+export const getMinutesLeftOfYear = (now) => {
+    const startOfNextYear = getNextYearDate(now);
+    const startOfNextYearMillis = startOfNextYear.getTime();
+    const nowMillis = now.getTime();
+    const minutesLeft = (startOfNextYearMillis - nowMillis) / 60000; // Convert to minutes
+    return minutesLeft.toFixed(2); // Format to two decimal places
+};
